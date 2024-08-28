@@ -1,0 +1,26 @@
+<project name="ctparser" default="test_all">
+    <property name="module.name" value="ctparser"/>
+    <property file="${user.home}/EniqBuild/BH/build.properties"/>
+    <property name="ant.common" value="${cc.base}/tools/ant_common"/>
+    <property file="${ant.common}/common.properties"/>
+    <property name="module.build" value="${module.ctparser.build}"/>
+    <property name="module.base" value="${module.ctparser.base}"/>
+    <property name="module.dependants" value="${module.ctparser.dependants}"/>
+    <import file="${ant.common}/common.xml"/>
+    <property name="tests.to.run" value="**/*Test.class"/>
+
+    <path id="ctparser.lib.classpath">
+        <path refid="plaform.lib.classpath"/>
+        <path location="${module.common_utilities.pkg}"/>
+        <path location="${module.engine.pkg}"/>
+        <path location="${module.repository.pkg}"/>
+        <path location="${module.alarm_module.pkg}"/>
+        <path location="${module.parser.pkg}"/>
+		<path location="${eniq_3pp.apache.xerces_parser.pkg}"/>
+    </path>
+    <path id="ctparser.test.classpath">
+        <path refid="platform.test.classpath"/>
+        <path refid="ctparser.lib.classpath"/>
+        <path location="${eniq.plat.base}/adapters/dev/ctparser/"/>
+    </path>
+</project>
